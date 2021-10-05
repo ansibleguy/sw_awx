@@ -1,0 +1,34 @@
+---
+
+# see: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-debian
+ANSIBLE_REPO_KEYSERVER: 'keyserver.ubuntu.com'
+ANSIBLE_REPO_KEY_ID: '93C4A3FD7BB9C367'
+ANSIBLE_REPO_URL: 'http://ppa.launchpad.net/ansible/ansible/ubuntu'
+ANSIBLE_REPO_VERSION_MATCHING:
+  'bullseye': 'focal'
+  'buster': 'bionic'
+
+AWX_INSTALL: false  # force run installation even we've already found an installation
+AWX_RELEASE: 19.3.0  # see: https://github.com/ansible/awx/releases
+AWX_DIR: '/var/lib/ansible_awx'
+AWX_SERVICE_PREFIX: ''
+
+AWX_ADMIN_USER: 'setup'
+AWX_ADMIN_MAIL: 'awx@template.ansibleguy.net'
+# AWX_ADMIN_PWD: ''
+
+# setup playbook variables
+AWX_SETTINGS: {}
+#AWX_SETTINGS:
+#  pg_host: 'REMOTE-IP'
+#  pg_hostname: 'REMOTE-HOST'
+#  pg_username: 'awx'
+#  pg_database: 'awx'
+#  pg_port: 'awx'
+#  pg_password: 'ANSIBLE-VAULT-SECRET'
+#  broadcast_websocket_secret: 'ANSIBLE-VAULT-SECRET'
+#  secret_key: 'ANSIBLE-VAULT-SECRET'
+
+AWX_BACKUP: true
+AWX_BACKUP_TIMER: 'Mon *-*-* 00:00:00'  # for format see: https://wiki.archlinux.org/title/Systemd/Timers
+AWX_BACKUP_DIR: '/var/backups'

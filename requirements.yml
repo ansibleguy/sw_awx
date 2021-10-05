@@ -1,0 +1,10 @@
+# external roles and collections to download
+# install: ansible-galaxy install -r requirements.yml
+
+roles:
+  - src: 'https://github.com/ansibleguy/nginx.git'
+    version: 'stable'
+    name: 'ansibleguy.nginx'
+  - src: 'https://github.com/ansibleguy/docker_setup.git'
+    version: 'stable'
+    name: 'ansibleguy.docker_setup'

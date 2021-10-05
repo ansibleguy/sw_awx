@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+[Unit]
+Description=Service to start ansible-awx docker containers via docker-compose
+After=network.target
+
+[Service]
+Type=simple
+TimeoutStartSec=120
+ExecStart=docker-compose -f {{ AWX_DIR }}/tools/docker-compose/_sources/docker-compose.yml up
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ansible_awx
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+# {{ ansible_managed }}
+# NOTE:
+#   restore: cat /var/backups/awx_dump.sql | docker exec -i tools_postgres_1 psql -U awx
+[Unit]
+Description=Service to back-up ansible-awx postgres database
+After=network.target
+
+[Service]
+Type=simple
+TimeoutStartSec=120
+ExecStart=/bin/bash /usr/local/sbin/backup_ansible_awx.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ansible_awx

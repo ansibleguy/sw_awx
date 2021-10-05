@@ -1,0 +1,34 @@
+---
+
+- name: Docker-Minimal | Install Docker's dependencies
+  apt:
+    name: "{{ DOCKER_PREREQUISITS }}"
+
+- name: Docker-Minimal | Adding gpg repo-key  # found no way to do this with the build-in apt_key module..
+  shell: "curl -fsSL {{ DOCKER_REPO_KEY_URL }} |
+  gpg --dearmor -o {{ DOCKER_REPO_KEY }}"
+  args:
+    creates: "{{ DOCKER_REPO_KEY }}"
+
+- name: Docker-Minimal | Add docker repository
+  ansible.builtin.apt_repository:
+    repo: "{{ DOCKER_REPO }}"
+    filename: 'docker.list'
+
+- name: Installing docker
+  apt:
+    name: "{{ DOCKER_PKGS }}"
+
+- name: Docker-Minimal | Downloading docker-compose
+  get_url:
+    url: "{{ DOCKER_COMPOSE_URL }}"
+    dest: '/usr/local/bin/docker-compose'
+    mode: 0755
+  when: DOCKER_COMPOSE
+
+- name: Docker-Minimal | Linking docker-compose
+  file:
+    path: '/usr/bin/docker-compose'
+    src: '/usr/local/bin/docker-compose'
+    state: link
+  when: DOCKER_COMPOSE

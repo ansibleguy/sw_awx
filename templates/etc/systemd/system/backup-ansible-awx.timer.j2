@@ -1,0 +1,11 @@
+# {{ ansible_managed }}
+[Unit]
+Description=Timer to back-up ansible-awx postgres database
+
+[Timer]
+OnCalendar={{ AWX_BACKUP_TIMER }}
+Persistent=false
+WakeSystem=false
+
+[Install]
+WantedBy=multi-user.target

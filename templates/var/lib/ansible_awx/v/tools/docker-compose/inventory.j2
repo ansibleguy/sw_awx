@@ -1,0 +1,5 @@
+[all:vars]
+
+{% for setting, value in AWX_SETTINGS.items() %}
+{{ setting }}={{ value }}
+{% endfor %}
