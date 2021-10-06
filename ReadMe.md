@@ -1,5 +1,5 @@
 # Ansible AWX Setup
-Ansible Role to set-up [Ansible AWX](https://github.com/ansible/awx) on a local docker host.
+Ansible Role to set-up [Ansible AWX](https://github.com/ansible/awx) on a [local docker host](https://github.com/ansible/awx/blob/devel/tools/docker-compose/README.md).
 
 **Note:** this role currently only supports debian-based systems
 
@@ -66,7 +66,7 @@ AWX_SETTINGS:
   pg_hostname: 'somehost'
   pg_database: 'awx'
   pg_port: 5440
-  pg_username: 'not_awx'
+  pg_username: 'awxpg'
   pg_password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
       64373031333937633163366236663237623464336461613334343739323763373330393930666331

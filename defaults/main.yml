@@ -29,6 +29,11 @@ AWX_SETTINGS: {}
 #  broadcast_websocket_secret: 'ANSIBLE-VAULT-SECRET'
 #  secret_key: 'ANSIBLE-VAULT-SECRET'
 
+AWX_SETTINGS_DEFAULTS:  # generating random passwords to use if none were provided
+  pg_password: "{{ lookup('password', '/dev/null chars=ascii_letters,digits length=20') }}"
+  secret_key: "{{ lookup('password', '/dev/null chars=ascii_letters,digits length=20') }}"
+  broadcast_websocket_secret: "{{ lookup('password', '/dev/null chars=ascii_letters,digits length=20') }}"
+
 AWX_BACKUP: true
 AWX_BACKUP_TIMER: 'Mon *-*-* 00:00:00'  # for format see: https://wiki.archlinux.org/title/Systemd/Timers
 AWX_BACKUP_DIR: '/var/backups'
