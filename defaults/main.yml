@@ -37,3 +37,4 @@ AWX_SETTINGS_DEFAULTS:  # generating random passwords to use if none were provid
 AWX_BACKUP: true
 AWX_BACKUP_TIMER: 'Mon *-*-* 00:00:00'  # for format see: https://wiki.archlinux.org/title/Systemd/Timers
 AWX_BACKUP_DIR: '/var/backups'
+AWX_BACKUP_RETENTION_DAYS: 30
