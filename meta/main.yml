@@ -1,7 +1,11 @@
 ---
 
 galaxy_info:
-  author: 'AnsibleGuy'
+  authors: ['AnsibleGuy <guy@ansibleguy.net>']
+  readme: 'ReadMe.md'
+  license: ['MIT']
+  version: '1.0'
+  repository: 'https://github.com/ansibleguy/awx'
   description: 'Role to install Ansible AWX on a linux server'
   platforms:
     - name: Debian
@@ -9,5 +13,5 @@ galaxy_info:
         - bullseye
   galaxy_tags:
     - 'awx'
-    - 'ansible-awx'
+    - 'ansibleawx'
     - 'docker'
