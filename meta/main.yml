@@ -4,8 +4,8 @@ galaxy_info:
   author: 'AnsibleGuy <guy@ansibleguy.net>'
   readme: 'README.md'
   license: 'MIT'
-  repository: 'https://github.com/ansibleguy/awx'
-  issue_tracker_url: 'https://github.com/ansibleguy/awx/issues'
+  repository: 'https://github.com/ansibleguy/sw_awx'
+  issue_tracker_url: 'https://github.com/ansibleguy/sw_awx/issues'
   github_branch: 'stable'
   min_ansible_version: 2.9.0
   description: 'Role to install Ansible AWX on a linux server'
@@ -18,5 +18,5 @@ galaxy_info:
     - 'docker'
 
 dependencies:
-  - 'ansibleguy.docker_setup'
-  - 'ansibleguy.nginx'
+  - 'ansibleguy.infra_docker_minimal'
+  - 'ansibleguy.infra_nginx'

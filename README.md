@@ -18,8 +18,8 @@ This role will most probably only work on the version that it was written for!
 ## Functionality
 
 * Package installation
-  * Docker => using [THIS Role](https://github.com/ansibleguy/docker_setup)
-  * Nginx => using [THIS Role](https://github.com/ansibleguy/nginx)
+  * Docker => using [THIS Role](https://github.com/ansibleguy/infra_docker_minimal)
+  * Nginx => using [THIS Role](https://github.com/ansibleguy/infra_nginx)
   * Ansible Client
 * Source installation
   * Ansible AWX
@@ -54,7 +54,7 @@ AWX_ADMIN_PWD: !vault |
 AWX_BACKUP_DIR: '/var/backups/awx'
 AWX_BACKUP_TIMER: 'Mon *-*-* 00:00:00' # for format see: https://wiki.archlinux.org/title/Systemd/Timers
 
-# configure the webserver settings => see: https://github.com/ansibleguy/nginx
+# configure the webserver settings => see: https://github.com/ansibleguy/infra_nginx
 nginx:
   domain: 'some.guy.net'
   aliases: ['other.guy.net']

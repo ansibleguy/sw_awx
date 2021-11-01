@@ -2,9 +2,9 @@
 # install: ansible-galaxy install -r requirements.yml
 
 roles:
-  - src: 'https://github.com/ansibleguy/nginx.git'
+  - src: 'https://github.com/ansibleguy/infra_nginx.git'
     version: 'stable'
-    name: 'ansibleguy.nginx'
-  - src: 'https://github.com/ansibleguy/docker_setup.git'
+    name: 'ansibleguy.infra_nginx'
+  - src: 'https://github.com/ansibleguy/infra_docker_minimal.git'
     version: 'stable'
-    name: 'ansibleguy.docker_setup'
+    name: 'ansibleguy.infra_docker_minimal'

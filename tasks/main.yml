@@ -2,13 +2,13 @@
 
 - name: Ansible AWX | Installing docker
   ansible.builtin.import_role:
-    name: ansibleguy.docker_setup
+    name: ansibleguy.infra_docker_minimal
   vars:
     DOCKER_COMPOSE: true
 
 - name: Ansible AWX | Installing docker
   ansible.builtin.import_role:
-    name: ansibleguy.nginx
+    name: ansibleguy.infra_nginx
   vars:
     NGINX_CONFIG: 'proxy'
     NGINX_PROXY_PORT: 8013
