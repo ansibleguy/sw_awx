@@ -102,14 +102,14 @@
 
 - name: Ansible AWX | Install | User-Creation not possible
   ansible.builtin.pause:
-    msg: "You have not defined a admin password for AWX!
+    prompt: "You have not defined a admin password for AWX!
     You might need to run the following command to create a superuser for yourself:
     \"docker exec -it tools_awx_1 awx-manage 'createsuperuser'\""
   when: AWX_CONFIG.admin_pwd is undefined
 
 - name: Ansible AWX | Install | User-Creation failed
   ansible.builtin.pause:
-    msg: "The AWX admin user-creation failed!
+    prompt: "The AWX admin user-creation failed!
     You might need to run the following command to create a superuser for yourself:
     \"docker exec -it tools_awx_1 awx-manage 'createsuperuser'\""
   when:
