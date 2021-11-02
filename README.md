@@ -54,6 +54,7 @@ awx:
   nginx:  # configure the webserver settings => see: https://github.com/ansibleguy/infra_nginx
     domain: 'some.guy.net'
     aliases: ['other.guy.net']
+    ip: '192.168.24.20'
 
     ssl:
       mode: 'self-signed'
