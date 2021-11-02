@@ -8,9 +8,10 @@ After=network.target
 [Service]
 Type=simple
 TimeoutStartSec=120
+ExecStartPre=mkdir -p {{ AWX_CONFIG.backup_path }}
 ExecStart=/bin/bash /usr/local/sbin/backup_ansible_awx.sh
-ExecStop=find {{ AWX_BACKUP_DIR}} -name "awx_dump_*.sql.xz" -type f -mtime +{{ AWX_BACKUP_RETENTION_DAYS }}
-ExecStop=find {{ AWX_BACKUP_DIR}} -name "awx_dump_*.sql.xz" -type f -mtime +{{ AWX_BACKUP_RETENTION_DAYS }} -delete
+ExecStop=find {{ AWX_CONFIG.backup_path }} -name "awx_dump_*.sql.xz" -type f -mtime +{{ AWX_CONFIG.backup_retention_days }}
+ExecStop=find {{ AWX_CONFIG.backup_path }} -name "awx_dump_*.sql.xz" -type f -mtime +{{ AWX_CONFIG.backup_retention_days }} -delete
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=ansible_awx

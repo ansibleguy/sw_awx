@@ -1,11 +1,5 @@
 [all:vars]
 
-{% for setting, value in AWX_SETTINGS.items() %}
+{% for setting, value in AWX_CONFIG.settings.items() %}
 {{ setting }}={{ value }}
-{% endfor %}
-
-{% for setting, value in AWX_SETTINGS_DEFAULTS.items() %}
-{%   if setting not in AWX_SETTINGS %}
-{{ setting }}={{ value }}
-{%   endif %}
 {% endfor %}

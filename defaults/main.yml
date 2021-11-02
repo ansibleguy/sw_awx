@@ -1,40 +1,42 @@
 ---
 
 # see: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-debian
-ANSIBLE_REPO_KEYSERVER: 'keyserver.ubuntu.com'
-ANSIBLE_REPO_KEY_ID: '93C4A3FD7BB9C367'
-ANSIBLE_REPO_URL: 'http://ppa.launchpad.net/ansible/ansible/ubuntu'
-ANSIBLE_REPO_VERSION_MATCHING:
-  'bullseye': 'focal'
-  'buster': 'bionic'
+ansible:
+  repo_key: 'keyserver.ubuntu.com'
+  repo_key_id: '93C4A3FD7BB9C367'
+  repo_url: 'http://ppa.launchpad.net/ansible/ansible/ubuntu'
+  version_matching:
+    'bullseye': 'focal'
+    'buster': 'bionic'
 
-AWX_INSTALL: false  # force run installation even we've already found an installation
-AWX_RELEASE: 19.3.0  # see: https://github.com/ansible/awx/releases
-AWX_DIR: '/var/lib/ansible_awx'
-AWX_SERVICE_PREFIX: ''
+default_awx:
+  install: false  # force run installation even we've already found an installation
+  release: 19.3.0  # see: https://github.com/ansible/awx/releases
+  path: '/var/lib/ansible_awx'
+  service_prefix: ''
+  admin_user: 'setup'
+  admin_mail: 'awx@template.ansibleguy.net'
+  # admin_pwd: ''
 
-AWX_ADMIN_USER: 'setup'
-AWX_ADMIN_MAIL: 'awx@template.ansibleguy.net'
-# AWX_ADMIN_PWD: ''
+  # setup playbook variables
+  settings:
+    pg_password: "{{ lookup('password', '/dev/null chars=ascii_letters,digits length=30') }}"
+    broadcast_websocket_secret: "{{ lookup('password', '/dev/null chars=ascii_letters,digits length=30') }}"
+    secret_key: "{{ lookup('password', '/dev/null chars=ascii_letters,digits length=30') }}"
+    # pg_host: 'REMOTE-IP'
+    # pg_hostname: 'REMOTE-HOST'
+    # pg_username: 'awx'
+    # pg_database: 'awx'
+    # pg_port: 'awx'
 
-# setup playbook variables
-AWX_SETTINGS: {}
-#AWX_SETTINGS:
-#  pg_host: 'REMOTE-IP'
-#  pg_hostname: 'REMOTE-HOST'
-#  pg_username: 'awx'
-#  pg_database: 'awx'
-#  pg_port: 'awx'
-#  pg_password: 'ANSIBLE-VAULT-SECRET'
-#  broadcast_websocket_secret: 'ANSIBLE-VAULT-SECRET'
-#  secret_key: 'ANSIBLE-VAULT-SECRET'
+  backup: true
+  backup_timer: 'Mon *-*-* 00:00:00'  # for format see: https://wiki.archlinux.org/title/Systemd/Timers
+  backup_path: '/var/backups/awx'
+  backup_retention_days: 30
 
-AWX_SETTINGS_DEFAULTS:  # generating random passwords to use if none were provided
-  pg_password: "{{ lookup('password', '/dev/null chars=ascii_letters,digits length=20') }}"
-  secret_key: "{{ lookup('password', '/dev/null chars=ascii_letters,digits length=20') }}"
-  broadcast_websocket_secret: "{{ lookup('password', '/dev/null chars=ascii_letters,digits length=20') }}"
+  nginx:
+    mode: 'proxy'
+    proxy:
+      port: 8013
 
-AWX_BACKUP: true
-AWX_BACKUP_TIMER: 'Mon *-*-* 00:00:00'  # for format see: https://wiki.archlinux.org/title/Systemd/Timers
-AWX_BACKUP_DIR: '/var/backups'
-AWX_BACKUP_RETENTION_DAYS: 30
+AWX_CONFIG: "{{ default_awx | combine(awx, recursive=true) }}"

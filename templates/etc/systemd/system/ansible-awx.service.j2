@@ -6,7 +6,7 @@ After=network.target
 [Service]
 Type=simple
 TimeoutStartSec=120
-ExecStart=docker-compose -f {{ AWX_DIR }}/tools/docker-compose/_sources/docker-compose.yml up
+ExecStart=docker-compose -f {{ AWX_CONFIG.path }}/tools/docker-compose/_sources/docker-compose.yml up
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=ansible_awx

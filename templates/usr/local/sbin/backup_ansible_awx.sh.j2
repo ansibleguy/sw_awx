@@ -1,4 +1,4 @@
 #!/bin/bash
 # full-restore via:  (will delete existing database(es)!!)
-#   xzcat {{ AWX_BACKUP_DIR}}/awx_dump_DATE.sql.xz | docker exec -i tools_postgres_1 psql -U {{ AWX_SETTINGS['pg_username'] | default('awx') }}
-docker exec -t tools_postgres_1 pg_dumpall -c -U {{ AWX_SETTINGS['pg_username'] | default('awx') }} | xz -7 > {{ AWX_BACKUP_DIR}}/awx_dump_$(date +%d-%m-%Y_%H_%M_%S).sql.xz
+#   xzcat {{ AWX_CONFIG.backup_path }}/awx_dump_DATE.sql.xz | docker exec -i tools_postgres_1 psql -U {{ AWX_CONFIG.settings['pg_username'] | default('awx') }}
+docker exec -t tools_postgres_1 pg_dumpall -c -U {{ AWX_CONFIG.settings['pg_username'] | default('awx') }} | xz -7 > {{ AWX_CONFIG.backup_path }}/awx_dump_$(date +%d-%m-%Y_%H_%M_%S).sql.xz

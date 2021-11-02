@@ -3,7 +3,7 @@
 Description=Timer to back-up ansible-awx postgres database
 
 [Timer]
-OnCalendar={{ AWX_BACKUP_TIMER }}
+OnCalendar={{ AWX_CONFIG.backup_timer }}
 Persistent=false
 WakeSystem=false
 
