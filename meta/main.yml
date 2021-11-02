@@ -17,6 +17,6 @@ galaxy_info:
     - 'awx'
     - 'docker'
 
-requirements:
-  - 'ansibleguy.infra_docker_minimal'
-  - 'ansibleguy.infra_nginx'
+#requirements:
+#  - 'ansibleguy.infra_docker_minimal'
+#  - 'ansibleguy.infra_nginx'
