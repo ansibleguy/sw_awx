@@ -1,0 +1,34 @@
+---
+
+# ansible-playbook -K -D -i inventory/hosts.yml playbook.yml --ask-vault-pass
+
+- hosts: all  # should be limited
+  become: yes
+  gather_facts: yes
+  vars:
+    awx:
+      nginx:
+        domain: 'some.guy.net'
+        aliases: [ 'other.guy.net' ]
+        ip: '192.168.24.20'
+
+        ssl:
+          mode: 'self-signed'
+          csr_data:
+            cn: 'Ansible AWX'
+            country: 'AT'
+            org: 'AnsibleGuy'
+            email: 'awx@template.ansibleguy.net'
+
+      admin_user: 'someguy'
+      admin_mail: 'awx@template.ansibleguy.net'
+      admin_pwd: !vault ...
+
+      settings:
+        pg_username: 'awxpg'
+        pg_password: !vault ...
+        broadcast_websocket_secret: !vault ...
+        secret_key: !vault ...
+
+  roles:
+    - ansibleguy.sw_awx

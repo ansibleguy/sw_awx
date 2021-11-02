@@ -38,6 +38,8 @@ ansible-galaxy install -r requirements.yml
 
 ## Usage
 
+Define the config as needed:
+
 ```yaml
 # must-have
 awx:
@@ -70,12 +72,16 @@ awx:
 
   # not necessary => only set if you need them especially
   settings:
-    # NOTE: you might want to disable the backup-job if you have an external db-server: AWX_BACKUP=false
     pg_username: 'awxpg'
     pg_password: !vault ...
     broadcast_websocket_secret: !vault ...
     secret_key: !vault ...
 
+```
+
+Run the playbook:
+```bash
+ansible-playbook -K -D -i inventory/hosts.yml playbook.yml --ask-vault-pass
 ```
 
 

@@ -5,6 +5,7 @@ roles:
   - src: 'https://github.com/ansibleguy/infra_nginx.git'
     version: 'stable'
     name: 'ansibleguy.infra_nginx'
+
   - src: 'https://github.com/ansibleguy/infra_docker_minimal.git'
     version: 'stable'
     name: 'ansibleguy.infra_docker_minimal'
