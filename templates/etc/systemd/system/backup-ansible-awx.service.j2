@@ -1,6 +1,9 @@
 # {{ ansible_managed }}
+# ansibleguy.sw_awx
+
 # NOTE:
 #   restore: cat /var/backups/awx_dump.sql | docker exec -i tools_postgres_1 psql -U awx
+
 [Unit]
 Description=Service to back-up ansible-awx postgres database
 After=network.target

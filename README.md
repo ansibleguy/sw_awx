@@ -1,7 +1,6 @@
 # Ansible AWX Setup
 Ansible Role to set-up [Ansible AWX](https://github.com/ansible/awx) on a [local docker host](https://github.com/ansible/awx/blob/devel/tools/docker-compose/README.md).
 
-**Note:** this role currently only supports debian-based systems
 
 **Tested:**
 * Debian 11
@@ -9,25 +8,35 @@ Ansible Role to set-up [Ansible AWX](https://github.com/ansible/awx) on a [local
 ## Version
 **[19.3.0](https://github.com/ansible/awx/tree/19.3.0)**
 
-## Warning
-Getting the setup-process to work was 'a little painful'.
-
-This role will most probably only work on the version that it was written for!
-
 
 ## Functionality
 
-* Package installation
+* **Package installation**
   * Docker => using [THIS Role](https://github.com/ansibleguy/infra_docker_minimal)
   * Nginx => using [THIS Role](https://github.com/ansibleguy/infra_nginx)
   * Ansible Client
-* Source installation
+
+
+* **Source installation**
   * Ansible AWX
-* Configuration
+
+
+* **Configuration**
   * Service to start/stop Ansible AWX containers
   * Fixes for multiple bugs of this version
   * Backup-Service to pull data from postgres container
 
+
+## Info
+
+* **Note:** this role currently only supports debian-based systems
+
+
+* **Warning:** Not every setting/variable you provide will be checked for validity. Bad config might break the role!
+
+
+* **Warning:** Getting the setup-process to work was 'a little painful'.<br>
+This role will most probably only work on the version that it was written for!
 
 ## Setup
 For this role to work - you must install its dependencies first:
