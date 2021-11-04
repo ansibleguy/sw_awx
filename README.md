@@ -38,6 +38,8 @@ ansible-galaxy install -r requirements.yml
 
 ## Usage
 
+### Config
+
 Define the config as needed:
 
 ```yaml
@@ -79,14 +81,14 @@ awx:
 
 ```
 
-Run the playbook:
-```bash
-ansible-playbook -K -D -i inventory/hosts.yml playbook.yml --ask-vault-pass
-```
-
-
 You might want to use 'ansible-vault' to encrypt your passwords:
 ```bash
 ansible-vault encrypt_string
 ```
 
+### Execution
+
+Run the playbook:
+```bash
+ansible-playbook -K -D -i inventory/hosts.yml playbook.yml --ask-vault-pass
+```
