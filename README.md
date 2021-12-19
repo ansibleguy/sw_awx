@@ -1,5 +1,7 @@
 # Ansible AWX Setup
-Ansible Role to set-up [Ansible AWX](https://github.com/ansible/awx) on a [local docker host](https://github.com/ansible/awx/blob/devel/tools/docker-compose/README.md).
+Ansible Role to deploy the [Ansible AWX](https://github.com/ansible/awx) software on a linux server.
+
+This role is following the [docker installation process](https://github.com/ansible/awx/blob/devel/tools/docker-compose/README.md).
 
 
 **Tested:**
