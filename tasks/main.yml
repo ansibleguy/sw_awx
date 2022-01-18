@@ -36,7 +36,7 @@
     owner: 'root'
     group: 'root'
     mode: 0755
-  with_items:
+  loop:
     - 'ansible-awx.service'
     - 'backup-ansible-awx.service'
     - 'backup-ansible-awx.timer'

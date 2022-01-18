@@ -34,7 +34,7 @@
     state: present
     regexp: "{{ item.reg }}"
     line: "{{ item.line }}"
-  with_items:
+  loop:
     - {reg: '^COMPOSE_TAG \?= \$\(GIT_BRANCH\)', line: "COMPOSE_TAG = {{ AWX_CONFIG.release }}"}
     - {reg: '^VENV_BASE \?= \/var\/lib\/awx\/venv\/', line: "VENV_BASE ?= /var/lib/awx/venv"}
 
@@ -46,7 +46,7 @@
     state: present
     line: "RUN {{ item }}"
     insertbefore: 'ENTRYPOINT \["\/entrypoint\.sh"\]'
-  with_items:
+  loop:
     - "grep -qxF 'mount_program = \"/usr/bin/fuse-overlayfs\"' /etc/containers/storage.conf ||
     sed -i '/^\\[storage.options\\]/a mount_program = \"/usr/bin/fuse-overlayfs\"' /etc/containers/storage.conf"
     - "grep -qxF 'user nobody;' /etc/nginx/nginx.conf ||
