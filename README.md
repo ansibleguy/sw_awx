@@ -1,6 +1,6 @@
 [![AWX](https://raw.githubusercontent.com/ansible/awx-logos/master/awx/ui/client/assets/logo-header.svg)](https://www.ansible.com/products/awx-project/faq)
 
-# Ansible AWX Setup
+# Ansible Role - Ansible AWX Setup
 Ansible Role to deploy the [Ansible AWX](https://github.com/ansible/awx) software on a linux server.
 
 This role is following the [docker installation process](https://github.com/ansible/awx/blob/devel/tools/docker-compose/README.md).
