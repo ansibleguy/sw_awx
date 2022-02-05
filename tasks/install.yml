@@ -63,20 +63,21 @@
     chdir: "{{ AWX_CONFIG.path }}"
     target: 'docker-compose-build'
 
-- name: Ansible AWX | Install | Preparing docker ##2
+- name: "Ansible AWX | Install | Preparing docker #2"
   ansible.builtin.command: 'make docker-auth awx/projects docker-compose-sources'  # will not run via 'make' module because of unimportant error..
   args:
     chdir: "{{ AWX_CONFIG.path }}"
   when: AWX_CONFIG.release|float < 19.4
 
-- name: Ansible AWX | Install | Preparing docker ##2
+- name: "Ansible AWX | Install | Preparing docker #2"
   ansible.builtin.make:
     chdir: "{{ AWX_CONFIG.path }}"
     target: 'make awx/projects docker-compose-sources'
   when: AWX_CONFIG.release|float >= 19.4
 
 - name: Ansible AWX | Install | Building WebUI (this will take some time!)
-  ansible.builtin.command: "docker-compose -f {{ AWX_CONFIG.path }}/tools/docker-compose/_sources/docker-compose.yml run --rm awx_1 make clean-ui ui-devel"
+  ansible.builtin.command: "docker-compose -f {{ AWX_CONFIG.path }}/tools/docker-compose/_sources/docker-compose.yml run
+  --rm awx_1 make clean-ui ui-devel"
 
 - name: Ansible AWX | Install | Starting service
   ansible.builtin.systemd:

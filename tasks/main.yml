@@ -48,7 +48,7 @@
     owner: 'root'
     group: 'root'
     mode: 0755
-  when:  AWX_CONFIG.backup
+  when: AWX_CONFIG.backup
 
 - name: Ansible AWX  | Enabling/Starting backup timer
   ansible.builtin.systemd:
@@ -56,7 +56,7 @@
     name: "{{ AWX_CONFIG.service_prefix }}backup-ansible-awx.timer"
     enabled: yes
     state: started
-  when:  AWX_CONFIG.backup
+  when: AWX_CONFIG.backup
 
 - name: Ansible AWX  | Enabling startup service
   ansible.builtin.systemd:

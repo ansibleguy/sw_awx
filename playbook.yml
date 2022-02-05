@@ -9,7 +9,7 @@
     awx:
       nginx:
         domain: 'some.guy.net'
-        aliases: [ 'other.guy.net' ]
+        aliases: ['other.guy.net']
         ip: '192.168.24.20'
 
         ssl:
