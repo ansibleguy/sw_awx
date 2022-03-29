@@ -5,6 +5,8 @@ Ansible Role to deploy the [Ansible AWX](https://github.com/ansible/awx) softwar
 
 This role is following the [docker installation process](https://github.com/ansible/awx/blob/devel/tools/docker-compose/README.md).
 
+[![Ansible Galaxy](https://img.shields.io/ansible/role/56759)](https://galaxy.ansible.com/ansibleguy/sw_awx)
+[![Ansible Galaxy Downloads](https://img.shields.io/badge/dynamic/json?color=blueviolet&label=Galaxy%20Downloads&query=%24.download_count&url=https%3A%2F%2Fgalaxy.ansible.com%2Fapi%2Fv1%2Froles%2F56759%2F%3Fformat%3Djson)](https://galaxy.ansible.com/ansibleguy/sw_awx)
 
 **Tested:**
 * Debian 11
