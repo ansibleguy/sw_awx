@@ -85,7 +85,10 @@ awx:
 
   # good to have
   backup_path: '/var/backups/awx'
-  backup_timer: 'Mon *-*-* 00:00:00' # for format see: https://wiki.archlinux.org/title/Systemd/Timers
+  backup_timer: 'Mon *-*-* 00:00:00'
+  # for date-time format see:
+  #   https://wiki.archlinux.org/title/Systemd/Timers
+  #   https://silentlad.com/systemd-timers-oncalendar-(cron)-format-explained
 
   # not necessary => only set if you need them especially
   settings:
