@@ -13,7 +13,7 @@
   vars:
     nginx:
       sites:
-        awx: "{{ default_awx.nginx | combine(AWX_CONFIG.nginx, recursive=true) }}"
+        awx: "{{ defaults_aw.nginx | combine(AWX_CONFIG.nginx, recursive=true) }}"
 
 - name: Ansible AWX | Adding ansible repository-key
   ansible.builtin.apt_key:

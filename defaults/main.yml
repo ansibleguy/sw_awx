@@ -9,7 +9,7 @@ ansible:
     'bullseye': 'focal'
     'buster': 'bionic'
 
-default_awx:
+defaults_awx:
   install: false  # force run installation even we've already found an installation
   release: 19.3.0  # see: https://github.com/ansible/awx/releases
   path: '/var/lib/ansible_awx'
@@ -42,4 +42,4 @@ default_awx:
     proxy:
       port: 8013
 
-AWX_CONFIG: "{{ default_awx | combine(awx, recursive=true) }}"
+AWX_CONFIG: "{{ defaults_awx | combine(awx, recursive=true) }}"
