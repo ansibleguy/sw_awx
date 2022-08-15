@@ -17,11 +17,16 @@ This role is following the [docker installation process](https://github.com/ansi
 ## Version
 **[19.3.0](https://github.com/ansible/awx/tree/19.3.0)**
 
+WARNING: The docker-based installation is NOT RECOMMENDED BY ANSIBLE-AWX!
+
 
 ## Functionality
 
 * **Package installation**
   * Docker => using [THIS Role](https://github.com/ansibleguy/infra_docker_minimal)
+    * Dependencies
+    * Server
+    * Docker-compose
   * Nginx => using [THIS Role](https://github.com/ansibleguy/infra_nginx)
   * Ansible Client
 

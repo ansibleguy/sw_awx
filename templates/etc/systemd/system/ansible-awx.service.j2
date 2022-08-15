@@ -9,8 +9,13 @@ After=network.target
 Type=simple
 TimeoutStartSec=120
 ExecStart=docker-compose -f {{ AWX_CONFIG.path }}/tools/docker-compose/_sources/docker-compose.yml up
+{% if ansible_distribution_version == '10' %}
+StandardOutput=syslog
+StandardError=syslog
+{% else %}
 StandardOutput=journal
 StandardError=journal
+{% endif %}
 SyslogIdentifier=ansible_awx
 
 [Install]
