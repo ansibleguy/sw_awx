@@ -6,7 +6,9 @@
 
 [Unit]
 Description=Service to back-up ansible-awx postgres database
+Requires=docker.service
 After=network.target
+Documentation=https://github.com/ansibleguy/sw_awx
 
 [Service]
 Type=simple
@@ -15,6 +17,7 @@ ExecStartPre=mkdir -p {{ AWX_CONFIG.backup_path }}
 ExecStart=/bin/bash /usr/local/sbin/backup_ansible_awx.sh
 ExecStop=find {{ AWX_CONFIG.backup_path }} -name "awx_dump_*.sql.xz" -type f -mtime +{{ AWX_CONFIG.backup_retention_days }}
 ExecStop=find {{ AWX_CONFIG.backup_path }} -name "awx_dump_*.sql.xz" -type f -mtime +{{ AWX_CONFIG.backup_retention_days }} -delete
+
 {% if ansible_distribution_version == '10' %}
 StandardOutput=syslog
 StandardError=syslog

@@ -3,7 +3,9 @@
 
 [Unit]
 Description=Service to start ansible-awx docker containers via docker-compose
+Requires=docker.service
 After=network.target
+Documentation=https://github.com/ansibleguy/sw_awx
 
 [Service]
 Type=simple
