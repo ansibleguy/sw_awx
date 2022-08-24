@@ -42,4 +42,10 @@ defaults_awx:
     proxy:
       port: 8013
 
+    ssl:
+      mode: 'ca'
+      cert:
+        cn: 'Ansible AWX'
+        org: 'AnsibleGuy'
+
 AWX_CONFIG: "{{ defaults_awx | combine(awx, recursive=true) }}"

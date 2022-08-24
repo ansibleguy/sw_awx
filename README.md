@@ -84,8 +84,8 @@ awx:
     ip: '192.168.24.20'
 
     ssl:
-      mode: 'self-signed'
-      csr_data:
+      mode: 'ca'
+      cert:
         cn: 'Ansible AWX'
         country: 'AT'
         org: 'AnsibleGuy'
