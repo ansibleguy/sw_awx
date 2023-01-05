@@ -9,6 +9,7 @@
   ansible.builtin.file:
     path: "{{ AWX_CONFIG.path }}"
     state: directory
+    mode: 0755
 
 - name: Ansible AWX | Install | Downloading awx source code
   ansible.builtin.git:
@@ -57,10 +58,11 @@
   ansible.builtin.template:
     src: 'templates/var/lib/ansible_awx/v/tools/docker-compose/inventory.j2'
     dest: "{{ AWX_CONFIG.path }}/tools/docker-compose/inventory"
+    mode: 0644
   no_log: true
 
 - name: Ansible AWX | Install | Preparing docker (this will take some time on the first run!)
-  ansible.builtin.make:
+  community.general.make:
     chdir: "{{ AWX_CONFIG.path }}"
     target: 'docker-compose-build'
   async: 600
@@ -75,7 +77,7 @@
   poll: 10
 
 - name: "Ansible AWX | Install | Preparing docker #2"
-  ansible.builtin.make:
+  community.general.make:
     chdir: "{{ AWX_CONFIG.path }}"
     target: 'make awx/projects docker-compose-sources'
   when: AWX_CONFIG.release|float >= 19.4
@@ -87,6 +89,7 @@
   --rm awx_1 make clean-ui ui-devel"
   async: 900
   poll: 15
+  changed_when: false
 
 - name: Ansible AWX | Install | Starting service
   ansible.builtin.systemd:

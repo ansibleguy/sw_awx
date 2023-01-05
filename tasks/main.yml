@@ -22,7 +22,7 @@
 
 - name: Ansible AWX | Add ansible repository
   ansible.builtin.apt_repository:
-    repo: "deb {{ ansible.repo_url }} {{ ansible.version_matching[ansible_distribution_release|lower] }} main"
+    repo: "deb {{ ansible.repo_url }} {{ ansible.version_matching[ansible_distribution_release | lower] }} main"
 
 - name: Ansible AWX | Installing ansible
   ansible.builtin.apt:

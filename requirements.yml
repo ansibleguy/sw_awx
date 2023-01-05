@@ -5,3 +5,6 @@
 roles:
   - src: 'ansibleguy.infra_nginx'
   - src: 'ansibleguy.infra_docker_minimal'
+
+collections:
+  - name: 'community.general'
