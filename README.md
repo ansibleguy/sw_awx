@@ -19,6 +19,17 @@ This role is following the [docker installation process](https://github.com/ansi
 
 WARNING: The docker-based installation is NOT RECOMMENDED BY ANSIBLE-AWX!
 
+## Install
+
+```bash
+ansible-galaxy install ansibleguy.sw_awx
+
+# or to custom role-path
+ansible-galaxy install ansibleguy.sw_awx --roles-path ./roles
+
+# install dependencies
+ansible-galaxy install -r requirements.yml
+```
 
 ## Functionality
 
@@ -51,13 +62,6 @@ WARNING: The docker-based installation is NOT RECOMMENDED BY ANSIBLE-AWX!
 
 * **Warning:** Getting the setup-process to work was 'a little painful'.<br>
 This role will most probably only work on the version that it was written for!
-
-## Setup
-For this role to work - you must install its dependencies first:
-
-```
-ansible-galaxy install -r requirements.yml
-```
 
 ## Usage
 
