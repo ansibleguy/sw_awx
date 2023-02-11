@@ -5,7 +5,8 @@
     name: ansibleguy.infra_docker_minimal
   vars:
     docker:
-      compose: true
+      compose:
+        enable: true
 
 - name: Ansible AWX | Installing docker
   ansible.builtin.import_role:
