@@ -73,6 +73,7 @@
   args:
     chdir: "{{ AWX_CONFIG.path }}"
   when: AWX_CONFIG.release|float < 19.4
+  changed_when: false
   async: 600
   poll: 10
 
