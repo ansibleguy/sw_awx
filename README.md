@@ -22,6 +22,10 @@ WARNING: The docker-based installation is NOT RECOMMENDED BY ANSIBLE-AWX!
 ## Install
 
 ```bash
+# latest
+ansible-galaxy role install git+https://github.com/ansibleguy/sw_awx
+
+# from galaxy
 ansible-galaxy install ansibleguy.sw_awx
 
 # or to custom role-path
