@@ -69,6 +69,8 @@ This role will most probably only work on the version that it was written for!
 
 ## Usage
 
+You want a simple Ansible GUI? Check-out my [Ansible WebUI](https://github.com/ansibleguy/webui)
+
 ### Config
 
 Define the config as needed:
