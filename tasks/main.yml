@@ -8,13 +8,13 @@
       compose:
         enable: true
 
-- name: Ansible AWX | Installing docker
+- name: Ansible AWX | Installing nginx
   ansible.builtin.import_role:
     name: ansibleguy.infra_nginx
   vars:
     nginx:
       sites:
-        awx: "{{ defaults_aw.nginx | combine(AWX_CONFIG.nginx, recursive=true) }}"
+        awx: "{{ defaults_awx.nginx | combine(AWX_CONFIG.nginx, recursive=true) }}"
 
 - name: Ansible AWX | Adding ansible repository-key
   ansible.builtin.apt_key:
